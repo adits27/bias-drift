@@ -1,0 +1,108 @@
+# File: configs/benchmarks.yaml
+# Configuration for bias benchmarks used in bias drift measurement
+
+# CrowS-Pairs: Crowd-Sourced Stereotype Pairs
+# Paper: https://aclanthology.org/2020.emnlp-main.154/
+crows_pairs:
+  # Display name and description
+  name: "CrowS-Pairs"
+  description: "Measures stereotypical biases across multiple demographic dimensions using sentence pairs"
+
+  # Dataset type and structure
+  type: "pair"  # Benchmark compares stereotype vs anti-stereotype sentence pairs
+  language: "en"
+
+  # Data paths
+  data_dir: "data/crows_pairs"
+  raw_file: "data/crows_pairs/raw/crows_pairs.csv"
+
+  # Expected CSV columns (for documentation)
+  columns:
+    id: "id"                          # Unique example identifier
+    sent_more: "sent_more"            # More stereotypical sentence
+    sent_less: "sent_less"            # Less stereotypical sentence
+    bias_type: "bias_type"            # Bias axis/category
+    stereo_antistereo: "stereo_antistereo"  # Direction indicator
+    annotations: "annotations"        # Annotator information
+
+  # Supported bias axes
+  bias_axes:
+    - race-color
+    - socioeconomic
+    - gender
+    - disability
+    - nationality
+    - sexual-orientation
+    - physical-appearance
+    - religion
+    - age
+
+  # Citation
+  citation: >
+    Nangia et al. (2020). CrowS-Pairs: A Challenge Dataset for Measuring Social Biases in Masked Language Models.
+    In Proceedings of EMNLP 2020.
+
+  # Evaluation settings
+  evaluation:
+    seed: 42
+    shuffle: false
+
+
+# WinoBias: Winograd Schema for Gender Bias
+# Paper: https://aclanthology.org/N18-2003/
+winobias:
+  # Display name and description
+  name: "WinoBias"
+  description: "Evaluates gender bias in coreference resolution tasks"
+
+  # Dataset type and structure
+  type: "coref"  # Coreference resolution task
+  language: "en"
+
+  # Data paths
+  data_dir: "data/winobias"
+  raw_file: "data/winobias/raw/winobias.tsv"
+
+  # Expected TSV columns (for documentation)
+  columns:
+    id: "id"                          # Unique example identifier
+    sentence: "sentence"              # Sentence with pronoun
+    answer_a: "answer_a"              # First candidate referent
+    answer_b: "answer_b"              # Second candidate referent
+    label: "label"                    # Correct answer (A or B)
+    subtype: "subtype"                # pro_stereotype or anti_stereotype
+    profession: "profession"          # Professional occupation mentioned
+
+  # Supported bias axes
+  bias_axes:
+    - gender
+
+  # Subtypes
+  subtypes:
+    - pro_stereotype    # Pronoun refers to stereotypically associated profession
+    - anti_stereotype   # Pronoun refers to counter-stereotypically associated profession
+
+  # Citation
+  citation: >
+    Zhao et al. (2018). Gender Bias in Coreference Resolution.
+    In Proceedings of NAACL-HLT 2018.
+
+  # Evaluation settings
+  evaluation:
+    seed: 42
+    shuffle: false
+
+
+# Global benchmark settings
+global:
+  # Reproducibility
+  seed: 42
+  deterministic: true
+
+  # Output settings
+  save_raw_predictions: true
+  save_aggregated_results: true
+
+  # Logging
+  verbose: true
+  log_level: "INFO"

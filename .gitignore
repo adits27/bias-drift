@@ -1,0 +1,305 @@
+# ==============================================================================
+# Python
+# ==============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# ==============================================================================
+# Machine Learning / NLP Specific
+# ==============================================================================
+
+# Model checkpoints and caches
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.safetensors
+*.pkl
+*.pickle
+
+# HuggingFace cache directories
+.cache/
+huggingface/
+transformers_cache/
+
+# Downloaded model directories (if you download models locally)
+models/
+checkpoints/
+
+# ==============================================================================
+# Project-Specific: Bias Drift Results
+# ==============================================================================
+
+# Evaluation results (these can be regenerated)
+results/raw/*.jsonl
+results/aggregated/*.json
+results/aggregated/*.csv
+results/visualizations/*.png
+results/visualizations/*.pdf
+results/figures/*.png
+results/figures/*.pdf
+
+# Keep the directory structure but ignore contents
+!results/raw/.gitkeep
+!results/aggregated/.gitkeep
+!results/visualizations/.gitkeep
+!results/figures/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# Temporary analysis files
+scratch/
+temp/
+tmp/
+
+# ==============================================================================
+# API Keys and Secrets (IMPORTANT!)
+# ==============================================================================
+
+# Environment files with API keys
+.env
+.env.*
+!.env.example
+
+# API key files
+*_api_key.txt
+*_secret.txt
+credentials.json
+secrets.yaml
+
+# OpenAI/Anthropic/HuggingFace tokens
+.openai
+.anthropic
+.huggingface
+
+# ==============================================================================
+# IDEs and Editors
+# ==============================================================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.*.sw?
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ==============================================================================
+# Data (Optional - decide what to commit)
+# ==============================================================================
+
+# Uncomment if you don't want to commit datasets
+# (Usually you DO want to commit small benchmark datasets like CrowS-Pairs)
+# data/crows_pairs/
+# data/winobias/
+
+# Large datasets (if you add any)
+data/large/
+data/raw_corpora/
+
+# ==============================================================================
+# Miscellaneous
+# ==============================================================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Compressed files (unless intentionally added)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+
+# System files
+*.DS_Store
+.Spotlight-V100
+.Trashes
+
+# ==============================================================================
+# Project Documentation (keep these)
+# ==============================================================================
+
+# We WANT to commit these:
+# !README.md
+# !docs/*.md
+# !configs/*.yaml
+# !requirements.txt

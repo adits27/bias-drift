@@ -1,0 +1,178 @@
+# File: configs/models.yaml
+# Model configurations for bias drift evaluation
+#
+# This file defines language models across different families and versions,
+# enabling temporal tracking of bias evolution. Each model entry specifies
+# the model type, source (HuggingFace or API), and metadata for versioning.
+
+models:
+  # ============================================================================
+  # BERT Family (Masked Language Models)
+  # ============================================================================
+
+  - id: bert-base-uncased
+    family: bert
+    version: 1
+    type: masked_lm
+    hf_name: bert-base-uncased
+    max_context_tokens: 512
+    release_date: "2018-10-11"
+    parameters: 110M
+    organization: Google
+    notes: "Original BERT base model, uncased tokenization"
+
+  - id: bert-large-uncased
+    family: bert
+    version: 2
+    type: masked_lm
+    hf_name: bert-large-uncased
+    max_context_tokens: 512
+    release_date: "2018-10-11"
+    parameters: 340M
+    organization: Google
+    notes: "Larger BERT variant with more parameters"
+
+  - id: roberta-base
+    family: roberta
+    version: 1
+    type: masked_lm
+    hf_name: roberta-base
+    max_context_tokens: 512
+    release_date: "2019-07-26"
+    parameters: 125M
+    organization: Meta
+    notes: "RoBERTa: Robustly optimized BERT approach"
+
+  - id: distilbert-base-uncased
+    family: distilbert
+    version: 1
+    type: masked_lm
+    hf_name: distilbert-base-uncased
+    max_context_tokens: 512
+    release_date: "2019-10-02"
+    parameters: 66M
+    organization: HuggingFace
+    notes: "Distilled version of BERT - smaller, faster, retains 97% performance"
+
+  # ============================================================================
+  # GPT-2 Family (HuggingFace Generative Models)
+  # ============================================================================
+
+  - id: gpt2
+    family: gpt2
+    version: 1
+    type: generative_hf
+    hf_name: gpt2
+    max_context_tokens: 1024
+    release_date: "2019-02-14"
+    parameters: 117M
+    organization: OpenAI
+    notes: "GPT-2 small (original release)"
+
+  - id: gpt2-medium
+    family: gpt2
+    version: 2
+    type: generative_hf
+    hf_name: gpt2-medium
+    max_context_tokens: 1024
+    release_date: "2019-02-14"
+    parameters: 345M
+    organization: OpenAI
+    notes: "GPT-2 medium variant"
+
+  - id: gpt2-large
+    family: gpt2
+    version: 3
+    type: generative_hf
+    hf_name: gpt2-large
+    max_context_tokens: 1024
+    release_date: "2019-11-05"
+    parameters: 762M
+    organization: OpenAI
+    notes: "GPT-2 large variant"
+
+  # ============================================================================
+  # GPT-Neo Family (Open-source GPT-3-like models)
+  # ============================================================================
+
+  - id: gpt-neo-125m
+    family: gpt-neo
+    version: 1
+    type: generative_hf
+    hf_name: EleutherAI/gpt-neo-125m
+    max_context_tokens: 2048
+    release_date: "2021-03-21"
+    parameters: 125M
+    organization: EleutherAI
+    notes: "GPT-Neo small - open-source GPT-3 alternative"
+
+  - id: gpt-neo-1.3b
+    family: gpt-neo
+    version: 2
+    type: generative_hf
+    hf_name: EleutherAI/gpt-neo-1.3B
+    max_context_tokens: 2048
+    release_date: "2021-03-21"
+    parameters: 1.3B
+    organization: EleutherAI
+    notes: "GPT-Neo medium - trained on the Pile dataset"
+
+  # ============================================================================
+  # GPT-3/3.5/4 Family (API-based Generative Models)
+  # ============================================================================
+
+  - id: gpt-3.5-turbo
+    family: gpt
+    version: 3.5
+    type: generative_api
+    api_name: gpt-3.5-turbo
+    max_context_tokens: 4096
+    release_date: "2022-11-30"
+    parameters: "~175B (estimated)"
+    organization: OpenAI
+    notes: "ChatGPT model, optimized for chat but works for completion"
+
+  - id: gpt-4
+    family: gpt
+    version: 4
+    type: generative_api
+    api_name: gpt-4
+    max_context_tokens: 8192
+    release_date: "2023-03-14"
+    parameters: "undisclosed"
+    organization: OpenAI
+    notes: "GPT-4 base model"
+
+  - id: gpt-4-turbo
+    family: gpt
+    version: 4.1
+    type: generative_api
+    api_name: gpt-4-turbo-preview
+    max_context_tokens: 128000
+    release_date: "2023-11-06"
+    parameters: "undisclosed"
+    organization: OpenAI
+    notes: "GPT-4 Turbo with larger context window"
+
+# ============================================================================
+# Global Evaluation Settings
+# ============================================================================
+
+evaluation:
+  # Default device for local models (HuggingFace)
+  device: auto  # auto, cpu, cuda, mps
+
+  # Batch processing
+  batch_size: 8
+
+  # Context and generation limits
+  max_length: 512
+
+  # Performance optimizations
+  use_fp16: false  # Enable for faster inference on compatible GPUs
+  use_flash_attention: false  # Requires flash-attn package
+
+  # API rate limiting (for API-based models)
+  api_rate_limit:
+    requests_per_minute: 60
+    tokens_per_minute: 90000

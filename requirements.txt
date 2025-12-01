@@ -1,0 +1,29 @@
+# File: requirements.txt
+# Core ML and NLP
+torch>=2.0.0
+transformers>=4.30.0
+datasets>=2.14.0
+
+# Data manipulation and numerical computing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Progress bars and utilities
+tqdm>=4.65.0
+
+# Configuration
+pyyaml>=6.0
+
+# Statistical analysis
+scipy>=1.10.0
+statsmodels>=0.14.0
+
+# Change point detection
+ruptures>=1.1.8
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Utilities
+scikit-learn>=1.3.0
