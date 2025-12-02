@@ -162,24 +162,6 @@ transformers_cache/
 models/
 checkpoints/
 
-# ==============================================================================
-# Project-Specific: Bias Drift Results
-# ==============================================================================
-
-# Evaluation results (these can be regenerated)
-results/raw/*.jsonl
-results/aggregated/*.json
-results/aggregated/*.csv
-results/visualizations/*.png
-results/visualizations/*.pdf
-results/figures/*.png
-results/figures/*.pdf
-
-# Keep the directory structure but ignore contents
-!results/raw/.gitkeep
-!results/aggregated/.gitkeep
-!results/visualizations/.gitkeep
-!results/figures/.gitkeep
 
 # Logs
 logs/
